@@ -1,0 +1,19 @@
+spring:
+  # Spring Boot configuration for JPA.
+  jpa:
+    # Don't let the HTTP session keep the database session (Open Session in View pattern).
+    # This is an anti-pattern. More is explained at https://vladmihalcea.com/the-open-session-in-view-anti-pattern/
+    open-in-view: false
+
+  # Configuration for the Jackson ObjectMapper serializer and deserializer
+  jackson.default-property-inclusion: non_null
+
+# Configuration properties for the application server.
+server:
+  # Make active requests complete before stopping the server when receiving the shutdown signal.
+  shutdown: graceful
+
+  # Configuration properties for the (Tomcat) embedded application server.
+  servlet:
+    # Disable the support for JSP since we don't need it (it allows a faster startup).
+    jsp.registered: false
